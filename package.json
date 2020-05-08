@@ -1,0 +1,28 @@
+{
+  "name": "vue-amplitude",
+  "version": "1.0.0",
+  "description": "A Vue.js plugin for the amplitude-js SDK",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BPerry24/vue-amplitude-plugin.git"
+  },
+  "keywords": [
+    "vue",
+    "plugin",
+    "js",
+    "javascript"
+  ],
+  "author": "Brady Perry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BPerry24/vue-amplitude-plugin/issues"
+  },
+  "homepage": "https://github.com/BPerry24/vue-amplitude-plugin#readme"
+}
