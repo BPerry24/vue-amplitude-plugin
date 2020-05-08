@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/BPerry24/vue-amplitude-plugin/issues"
   },
-  "homepage": "https://github.com/BPerry24/vue-amplitude-plugin#readme"
+  "homepage": "https://github.com/BPerry24/vue-amplitude-plugin#readme",
+  "devDependencies": {
+    "jest": "^26.0.1"
+  }
 }
