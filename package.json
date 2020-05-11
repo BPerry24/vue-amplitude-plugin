@@ -20,7 +20,7 @@
     "js",
     "javascript"
   ],
-  "author": "Brady Perry",
+  "author": "Brady Perry <brdyprry@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/BPerry24/vue-amplitude-plugin/issues"
