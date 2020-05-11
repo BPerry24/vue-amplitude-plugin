@@ -1,23 +1,15 @@
 jest.mock('amplitude-js');
-jest.mock('../../errors', () => ({
-  PluginError: class extends Error {
-    constructor (msg) {
-      super(msg)
-    }
-  }
-}));
-const VueAmplitude = require('../../');
-const amplitude = require('amplitude-js');
-
-class Vue {
-
-};
+jest.mock('../../errors/PluginError', () => class extends Error {});
+import VueAmplitude from '../../';
+import amplitude from 'amplitude-js'
 
 describe('VueAmplitude (plugin)', () => {
+  let MockVue;
   beforeEach(() => {
     amplitude.getInstance = jest.fn(() => amplitude);
     amplitude.init = jest.fn(() => amplitude);
     amplitude.logEvent = jest.fn();
+    MockVue = class {};
   });
 
   it('has an install method', () => {
@@ -25,24 +17,22 @@ describe('VueAmplitude (plugin)', () => {
   });
 
   describe('install (method)', () => {
-    let vue;
     let options;
     beforeEach(() => {
-      vue = Vue;
       options = {
         apiKey: 'someapikey',
         userId: 1
       };
     });
 
-    it('throws if \'vue\' or \'options.apiKey\' params not provided', () => {
+    it('throws if \'Vue\' or \'options.apiKey\' params not provided', () => {
       expect(() => VueAmplitude.install()).toThrow('Must provide global Vue object');
-      expect(() => VueAmplitude.install(vue)).toThrow('Must provide an \'apiKey\' option');
-      expect(() => VueAmplitude.install(vue, options)).not.toThrow();
+      expect(() => VueAmplitude.install(MockVue)).toThrow('Must provide an \'apiKey\' option');
+      expect(() => VueAmplitude.install(MockVue, options)).not.toThrow();
     });
 
     it('inits amplitude object with apiKey and userId if provided', () => {
-      VueAmplitude.install(vue, options);
+      VueAmplitude.install(MockVue, options);
       expect(amplitude.getInstance).toHaveBeenCalled();
       expect(amplitude.init).toHaveBeenCalledWith(
         options.apiKey,
@@ -53,7 +43,7 @@ describe('VueAmplitude (plugin)', () => {
     it('does not invoke init with userId if it is not provided', () => {
       const optionsCopy = Object.assign({}, options);
       delete optionsCopy.userId;
-      VueAmplitude.install(vue, optionsCopy);
+      VueAmplitude.install(MockVue, optionsCopy);
       expect(amplitude.init).not.toHaveBeenCalledWith(
         options.apiKey,
         expect.anything()
@@ -63,11 +53,11 @@ describe('VueAmplitude (plugin)', () => {
       );
     });
 
-    it('sets $logEvent method on the vue prototype', () => {
-      VueAmplitude.install(vue, options);
-      expect(vue.prototype.$logEvent).toBeTruthy();
-      expect(typeof vue.prototype.$logEvent).toBe('function');
-      expect(vue.prototype.$logEvent).toBe(VueAmplitude.logEvent);
+    it('sets $logEvent method on the Vue prototype', () => {
+      VueAmplitude.install(MockVue, options);
+      expect(MockVue.prototype.$logEvent).toBeTruthy();
+      expect(typeof MockVue.prototype.$logEvent).toBe('function');
+      expect(MockVue.prototype.$logEvent).toBe(VueAmplitude.logEvent);
     });
   });
 

@@ -1,7 +1,11 @@
-const amplitude = require('amplitude-js');
-const { PluginError } = require('./errors');
+import amplitude from 'amplitude-js'
+import errors from './errors';
 
-module.exports = {
+const { PluginError } = errors;
+console.log(PluginError)
+
+
+export default {
   install (Vue, options) {
     if (!Vue) throw new PluginError('Must provide global Vue object');
     if (!options || !options.apiKey) throw new PluginError('Must provide an \'apiKey\' option');
