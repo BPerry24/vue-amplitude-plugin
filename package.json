@@ -28,5 +28,8 @@
   "homepage": "https://github.com/BPerry24/vue-amplitude-plugin#readme",
   "devDependencies": {
     "jest": "^26.0.1"
+  },
+  "dependencies": {
+    "amplitude-js": "^6.2.0"
   }
 }
