@@ -3,12 +3,13 @@
   "name": "vue-amplitude",
   "version": "1.0.0",
   "description": "A Vue.js plugin for the amplitude-js SDK",
-  "main": "index.js",
+  "main": "dist/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,8 @@
     "vue",
     "plugin",
     "js",
-    "javascript"
+    "javascript",
+    "npm"
   ],
   "author": "Brady Perry <brdyprry@gmail.com>",
   "license": "ISC",
@@ -28,6 +30,8 @@
   "homepage": "https://github.com/BPerry24/vue-amplitude-plugin#readme",
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "jest": "^26.0.1",
     "webpack": "^4.43.0",
