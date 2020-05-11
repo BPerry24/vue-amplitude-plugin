@@ -1,4 +1,4 @@
-const PluginError = require('../../PluginError');
+import PluginError from '../../';
 
 describe('PluginError (error)', () => {
   it('extends the error class', () => {

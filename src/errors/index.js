@@ -1,5 +1,5 @@
-const PluginError = require('./PluginError');
+import PluginError from './PluginError';
 
-module.exports = {
+export default {
   PluginError
-}
+};
