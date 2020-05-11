@@ -2,7 +2,6 @@ import amplitude from 'amplitude-js'
 import errors from './errors';
 
 const { PluginError } = errors;
-console.log(PluginError)
 
 
 export default {
