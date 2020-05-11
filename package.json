@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "vue-amplitude",
+  "name": "vue-amplitude-plugin",
   "version": "1.0.0",
   "description": "A Vue.js plugin for the amplitude-js SDK",
   "main": "dist/index.js",
