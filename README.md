@@ -2,6 +2,7 @@
 ### A Vue.js plugin created to easily utilize Amplitude Javascript SDK
 
 ## Installation
+`npm i -S vue-amplitude-plugin`
 
 ## Using the Plugin
 ```
@@ -21,4 +22,8 @@ Vue.prototype.$logEvent('YOUR_EVENT', {
 });
 ```
 
-## Testing
+## Contributing
+Fork this repository and make a pull request
+
+### Testing
+`npm run test`
